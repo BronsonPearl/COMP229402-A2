@@ -30,17 +30,25 @@ try{
 }
 
 export const updateContacts = async (req, res) => {
-try{
-	const updateContacts = await Contacts.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  try {
+    // Replaced { new: true } has been deprecated
+    const updatedContact = await Contacts.findByIdAndUpdate(
+      req.params.id, 
+      req.body, 
+      { returnDocument: 'after' }
+    );
 
-	if(!updateContacts) {
-		return res.status(404).json({message: "Contact not found"});
-	}
-} catch (error)
-{res.status(500).json({message: error.message});}
+    if (!updatedContact) {
+      return res.status(404).json({ message: "Contact not found" });
+    }
 
+    // Send the updated contact details back to the client
+    return res.status(200).json(updatedContact);
+
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
 }
-
 
 export const deleteContact = async (req, res) => {
 
