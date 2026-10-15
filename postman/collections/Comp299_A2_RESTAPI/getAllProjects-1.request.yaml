@@ -1,0 +1,9 @@
+$kind: http-request
+name: getAllProjects
+url: http://localhost:3000/projects
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: ""
+order: 3926

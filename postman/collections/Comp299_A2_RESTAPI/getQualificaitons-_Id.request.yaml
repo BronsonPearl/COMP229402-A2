@@ -1,0 +1,6 @@
+$kind: http-request
+name: getQualificaitons/_Id
+description: ""
+url: http://localhost:3000/qualifications/6ad01a0bad585bd44e523368
+method: GET
+order: 3810

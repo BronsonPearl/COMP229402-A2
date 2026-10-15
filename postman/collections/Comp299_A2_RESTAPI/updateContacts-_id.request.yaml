@@ -1,0 +1,13 @@
+$kind: http-request
+name: updateContacts/_id
+description: ""
+url: http://localhost:3000/contacts/6ad01b0adc787024dfbe6a8b
+method: GET
+body:
+  type: json
+  content: ""
+auth:
+  type: bearer
+  credentials:
+    token: ""
+order: 9000

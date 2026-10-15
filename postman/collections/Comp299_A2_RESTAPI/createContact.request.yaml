@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost:3000/contacts
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "fname":  "bronson",
+      "lname": "pearl",
+      "email": "pb@gmail.com",
+      "phoneNumber": "519-967-1111"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: ""
+order: 2608

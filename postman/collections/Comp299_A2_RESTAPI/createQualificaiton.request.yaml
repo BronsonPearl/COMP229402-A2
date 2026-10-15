@@ -1,0 +1,16 @@
+$kind: http-request
+url: http://localhost:3000/qualifications
+method: POST
+body:
+  type: json
+  content: |-
+    {
+       "title":  "Computer Science Cert",
+       "description": "An introduction to the intellectual enterprises of computer science and the art of programming.",
+       "completionDate": "2022-12-30"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: ""
+order: 2485

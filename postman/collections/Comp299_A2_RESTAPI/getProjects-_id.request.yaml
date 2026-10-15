@@ -1,0 +1,10 @@
+$kind: http-request
+name: getProjects/_id
+description: ""
+url: http://localhost:3000/projects/6ad0142d464ef6fcaaf990e5
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: ""
+order: 4000

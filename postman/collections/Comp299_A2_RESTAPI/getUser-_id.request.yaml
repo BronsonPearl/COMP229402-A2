@@ -1,0 +1,6 @@
+$kind: http-request
+name: getUser/_id
+description: ""
+url: http://localhost:3000/users/6ad00a1c6ac829633e467b97
+method: GET
+order: 3721
