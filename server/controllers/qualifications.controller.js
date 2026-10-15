@@ -30,16 +30,25 @@ try{
 }
 
 export const updateQualifications = async (req, res) => {
-try{
-	const updateQualifications = await Qualifications.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  try {
+    const updatedQualification = await Qualifications.findByIdAndUpdate(
+      req.params.id, 
+      req.body, 
+      { returnDocument: 'after' }
+    );
 
-	if(!updateQualifications) {
-		return res.status(404).json({message: "Qualification not found"});
-	}
-} catch (error)
-{res.status(500).json({message: error.message});}
+    if (!updatedQualification) {
+      return res.status(404).json({ message: "Qualification not found" });
+    }
 
-}
+    // Send the updated contact details back to the client
+    return res.status(200).json(updatedQualification);
+
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
 
 
 export const deleteQualifications = async (req, res) => {
