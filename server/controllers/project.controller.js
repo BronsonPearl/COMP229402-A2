@@ -30,15 +30,23 @@ try{
 }
 
 export const updateProject = async (req, res) => {
-try{
-	const updateProject = await Project.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  try {
+    const updatedProject = await Project.findByIdAndUpdate(
+      req.params.id, 
+      req.body, 
+      { returnDocument: 'after' }
+    );
 
-	if(!updateProject) {
-		return res.status(404).json({message: "project not found"});
-	}
-} catch (error)
-{res.status(500).json({message: error.message});}
+    if (!updatedProject) {
+      return res.status(404).json({ message: "Project not found" });
+    }
 
+    // Send the updated contact details back to the client
+    return res.status(200).json(updatedProject);
+
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
 }
 
 
